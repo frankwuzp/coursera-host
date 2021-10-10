@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
@@ -41,7 +40,7 @@ def dropDuplication(line):
 
 # 更新host, 并刷新本地DNS
 def updateHost():
-    # 不显示时分秒 => today = datetime.date.today()
+    # 不显示时分秒的方法 => today = datetime.date.today()
 	today = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     for site in sites:
         trueip=get_ip_utils.getIpFromipapi(site)
@@ -54,12 +53,12 @@ def updateHost():
             for line in f1_lines:                       # 为了防止 host 越写用越长，需要删除之前更新的含有github相关内容
                 if dropDuplication(line) == False:
                     f2.write(line)
-            f2.write("# Coursera Start" +
-                     str(today) + " update********************\n")
+            f2.write("# Coursera Start\n")
             f2.write("# From https://github.com/frankwuzp/coursera-host\n")
-			f2.write("# Update Time: " + str(today) + " (Beijing Time)\n")
+			f2.write("# Update Time: " + str(today) "\n")
             for key in addr2ip:
                 f2.write(addr2ip[key] + "\t" + key + "\n")
+			f2.write("# Coursera End\n")
     os.remove(hostLocation)
     os.rename("temphost",hostLocation)
 
