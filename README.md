@@ -1,6 +1,6 @@
 # coursera-host
 
-## 背景
+## 👀 背景
 
 国内访问 coursera 网站奇慢，视频根本打不开，怀疑是 DNS 污染。
 
@@ -10,7 +10,7 @@
 
 本项目基于 [github-host](https://github.com/jianboy/github-host) 的轮子，感谢！
 
-## 修改 hosts 文件
+## 🚀 修改 hosts 文件
 
 ### hosts 文件位置
 
@@ -26,11 +26,11 @@
 
 记事本或 `Notspad++` 编辑本地 `hosts` 文件，Linux、Mac 带上`sudo` 编辑，将本仓库根目录中的 `host`文件内容复制进去。enjoy it！:)
 
-## 刷新 DNS缓存
+## 📟 刷新 DNS缓存
 
 修改完 `hosts`文件，一般来说是实时生效的，如未生效，`Windows`系统使用 `cmd命令行`执行：`ipconfig /flushdns`，Linux 下需执行 `sudo /etc/init.d/networking restart` 重启网络。
 
-## 进阶：自动更新
+## 👨‍💻 进阶：自动更新
 
 最近发现的开源神器 `SwitchHosts`，进入[网站主页](https://swh.app/zh/)按照说明安装即可，功能丰富，强烈安利！
 
@@ -38,12 +38,12 @@
 
 `hosts` 文件：`https://raw.githubusercontent.com/frankwuzp/coursera-host/main/hosts`
 
-## Ref
+## 💌 Ref
 
 - [github-host](https://github.com/jianboy/github-host)
 - [GitHub520](https://github.com/521xueweihan/GitHub520#readme)
 
-## Changelog
+## 📖 Changelog
 
 - 211010 米斯特乌初稿
 
