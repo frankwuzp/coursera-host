@@ -40,8 +40,7 @@ def dropDuplication(line):
 
 # 更新host, 并刷新本地DNS
 def updateHost():
-    # 不显示时分秒的方法 => today = datetime.date.today()
-	today = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    today = datetime.date.today()
     for site in sites:
         trueip=get_ip_utils.getIpFromipapi(site)
         if trueip != None:
@@ -55,10 +54,12 @@ def updateHost():
                     f2.write(line)
             f2.write("#*******Coursera Start*******\n")
             f2.write("# From https://github.com/frankwuzp/coursera-host\n")
-			f2.write("# Update Time: " + str(today) + "\n")
+            #str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "\n")
+            f2.write("# Update Time: " +
+                     str(today) + " \n")
             for key in addr2ip:
                 f2.write(addr2ip[key] + "\t" + key + "\n")
-			f2.write("#*******Coursera End*******\n")
+			#f2.write("#*******Coursera End*******\n")
     os.remove(hostLocation)
     os.rename("temphost",hostLocation)
 
