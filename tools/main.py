@@ -55,7 +55,7 @@ def updateHost():
                     f2.write(line)
             f2.write("#*******Coursera Start*******\n")
             f2.write("# From https://github.com/frankwuzp/coursera-host\n")
-			f2.write("# Update Time: " + str(today) "\n")
+			f2.write("# Update Time: " + str(today) + "\n")
             for key in addr2ip:
                 f2.write(addr2ip[key] + "\t" + key + "\n")
 			f2.write("#*******Coursera End*******\n")
