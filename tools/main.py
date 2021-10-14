@@ -13,7 +13,7 @@
 
 import shutil
 import os,sys,ctypes
-import datetime
+from datetime import datetime, timedelta, timezone
 import get_ip_utils
 import platform
 
@@ -26,6 +26,13 @@ sites = [
 
 addr2ip = {}
 hostLocation = r"hosts"
+
+# 更新时间修订北京时间，增加时分秒
+def get_now_date_str(format_string="%Y-%m-%d %H:%M:%S"):#"%Y-%m-%d %H:%M:%S"
+    utc_dt = datetime.utcnow().replace(tzinfo=timezone.utc)
+    bj_dt = utc_dt.astimezone(timezone(timedelta(hours=8)))
+    str_date = bj_dt.strftime(format_string)
+    return str_date
 
 def dropDuplication(line):
     flag = False
@@ -40,7 +47,8 @@ def dropDuplication(line):
 
 # 更新host, 并刷新本地DNS
 def updateHost():
-    today = datetime.date.today()
+    # today = datetime.date.today()
+    update_time = get_now_date_str()
     for site in sites:
         trueip=get_ip_utils.getIpFromipapi(site)
         if trueip != None:
@@ -52,11 +60,11 @@ def updateHost():
             for line in f1_lines:                       # 为了防止 host 越写用越长，需要删除之前更新的含有github相关内容
                 if dropDuplication(line) == False:
                     f2.write(line)
-            f2.write("#*******Coursera Start*******\n")
-            f2.write("# From https://github.com/frankwuzp/coursera-host\n")
+            f2.write("#******* Coursera Start *******\n")
+            f2.write("#******* From https://github.com/frankwuzp/coursera-host\n")
             #str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "\n")
-            f2.write("# Update Time: " +
-                     str(today) + " \n")
+            f2.write("#******* Update Time: " +
+                     str(update_time) + " (UTC+8)\n")
             for key in addr2ip:
                 f2.write(addr2ip[key] + "\t" + key + "\n")
 			#f2.write("#*******Coursera End*******\n")
