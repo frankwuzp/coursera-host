@@ -53,9 +53,9 @@ def updateHost():
                 if dropDuplication(line) == False:
                     f2.write(line)
             f2.write("#*******Coursera Start*******\n")
-            f2.write("# From https://github.com/frankwuzp/coursera-host\n")
+            f2.write("#*******From https://github.com/frankwuzp/coursera-host\n")
             #str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "\n")
-            f2.write("# Update Time: " +
+            f2.write("#*******Update Time: " +
                      str(today) + " \n")
             for key in addr2ip:
                 f2.write(addr2ip[key] + "\t" + key + "\n")
