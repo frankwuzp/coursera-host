@@ -64,7 +64,7 @@ def updateHost():
             f2.write("#******* From https://github.com/frankwuzp/coursera-host\n")
             #str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "\n")
             f2.write("#******* Update Time: " +
-                     str(update_time) + " \n")
+                     str(update_time) + " (UTC+8)\n")
             for key in addr2ip:
                 f2.write(addr2ip[key] + "\t" + key + "\n")
 			#f2.write("#*******Coursera End*******\n")
