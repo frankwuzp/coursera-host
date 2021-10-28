@@ -24,7 +24,7 @@
 
 ### 修改方法
 
-记事本或 `Notspad++` 编辑本地 `hosts` 文件，Linux、Mac 带上`sudo` 编辑，将本仓库根目录中的 `host`文件内容复制进去。enjoy it！:)
+记事本或 `Notspad++` 编辑本地 `hosts` 文件，Linux、Mac 带上`sudo` 编辑，将本仓库根目录中的 `hosts`文件内容复制进去。enjoy it！:)
 
 ## 📟 刷新 DNS缓存
 
