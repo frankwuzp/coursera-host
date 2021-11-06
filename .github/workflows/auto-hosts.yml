@@ -37,9 +37,13 @@ jobs:
           pwd
           python tools/main.py
       - name: Push to built branch
-        uses: Automattic/action-commit-to-branch@master
+        uses: ad-m/github-push-action@master
         with:
-          branch: 'main'
-          commit_message: '🚀 update hosts'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+        uses: Automattic/action-commit-to-branch@master
+        #with:
+         # branch: 'main'
+          #commit_message: '🚀 update hosts'
+        #env:
+         # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
